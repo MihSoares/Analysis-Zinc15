@@ -9,12 +9,11 @@ library(esquisse)
 # importing data
 
 df <- read.csv2("base de dados.csv")
+str(df)
 
 # adjusting data
 
 # transforming data from logical to numeric. fixing the errors
-
-str(df)
 
 df$ExactMolWt=as.numeric(df$ExactMolWt)
 df$MolLogp=as.numeric(df$MolLogp)
@@ -88,7 +87,6 @@ MMM <- data.frame(Descriptors = c("NumAtoms", "ExactMolWt", "NumRotableBonds",
                          min(df$TPSA),
                          min(df$NumHDonors)),
                  stringsAsFactors = FALSE)
-MMM
 
 # max molecular formula valors
 
@@ -103,7 +101,7 @@ df$MolecularFormula[which.max(df$NumHDonors)]
 
 # making max molecular formula data frame valors
 
-MMF <- data.frame(Descriptors = c("NumAtoms", "ExactMolWt", "NumRotableBonds",
+MAXMF <- data.frame(Descriptors = c("NumAtoms", "ExactMolWt", "NumRotableBonds",
                                        "MolLogP", "RingCount", "NumHAcceptors",
                                        "TPSA", "NumHdonors"),
                   MolecularFormula = c(df$MolecularFormula[which.max(df$NumAtoms)],
@@ -124,7 +122,40 @@ MMF <- data.frame(Descriptors = c("NumAtoms", "ExactMolWt", "NumRotableBonds",
                           max(df$NumHDonors)),
                   stringsAsFactors = FALSE)
 
-MMF
+# min molecular formula valors
+
+df$MolecularFormula[which.min(df$NumAtoms)]
+df$MolecularFormula[which.min(df$ExactMolWt)]
+df$MolecularFormula[which.min(df$NumRotableBonds)]
+df$MolecularFormula[which.min(df$MolLogp)]
+df$MolecularFormula[which.min(df$RingCount)]
+df$MolecularFormula[which.min(df$NumHAcceptors)]
+df$MolecularFormula[which.min(df$TPSA)]
+df$MolecularFormula[which.min(df$NumHDonors)]
+
+# making max molecular formula data frame valors
+
+MINMF <- data.frame(Descriptors = c("NumAtoms", "ExactMolWt", "NumRotableBonds",
+                                  "MolLogP", "RingCount", "NumHAcceptors",
+                                  "TPSA", "NumHdonors"),
+                  MolecularFormula = c(df$MolecularFormula[which.min(df$NumAtoms)],
+                                       df$MolecularFormula[which.min(df$ExactMolWt)],
+                                       df$MolecularFormula[which.min(df$NumRotableBonds)],
+                                       df$MolecularFormula[which.min(df$MolLogp)],
+                                       df$MolecularFormula[which.min(df$RingCount)],
+                                       df$MolecularFormula[which.min(df$NumHAcceptors)],
+                                       df$MolecularFormula[which.min(df$TPSA)],
+                                       df$MolecularFormula[which.min(df$NumHDonors)]),
+                  Min = c(min(df$NumAtoms),
+                          min(df$ExactMolWt),
+                          min(df$NumRotableBonds),
+                          min(df$MolLogp),
+                          min(df$RingCount),
+                          min(df$NumHAcceptors),
+                          min(df$TPSA),
+                          min(df$NumHDonors)),
+                  stringsAsFactors = FALSE)
+
 
 # ploting datas
 
