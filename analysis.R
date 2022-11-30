@@ -202,6 +202,76 @@ ggplot(df) +
   labs(title = "Plot", subtitle = "ExactMolWt x NumHDonors") +
   theme_bw()
 
+# NumAtoms x RingCount
+
+ggplot(df) +
+  aes(x = NumAtoms, y = RingCount, colour = NumAtoms) +
+  geom_point(shape = "circle", size = 1.5) +
+  scale_color_distiller(palette = "YlOrRd", direction = 1) +
+  labs(title = "Plot", subtitle = "NumAtoms x RingCount") +
+  theme_bw()
+
+# NumRotableBonds x NumHAcceptors
+
+ggplot(df) +
+  aes(
+    x = NumRotableBonds,
+    y = NumHAcceptors,
+    colour = NumRotableBonds
+  ) +
+  geom_point(shape = "circle", size = 1.5) +
+  scale_color_distiller(palette = "YlOrRd", direction = -1) +
+  labs(
+    title = "Plot",
+    subtitle = "NumRotableBonds x NumHAcceptors"
+  ) +
+  theme_bw()
+
+# NumRotableBonds x NumHDonors
+
+ggplot(df) +
+  aes(
+    x = NumRotableBonds,
+    y = NumHDonors,
+    colour = NumHDonors
+  ) +
+  geom_point(shape = "circle", size = 1.5) +
+  scale_color_distiller(palette = "YlOrRd", direction = -1) +
+  labs(
+    title = "Plot",
+    subtitle = "NumRotableBonds x NumHDonors"
+  ) +
+  theme_bw()
+
+# NumAtoms x RotableBonds
+
+ggplot(df) +
+  aes(x = NumAtoms, y = NumRotableBonds, colour = NumAtoms) +
+  geom_point(shape = "circle", size = 1.5) +
+  scale_color_distiller(palette = "YlOrRd", direction = 1) +
+  labs(
+    title = "Plot",
+    subtitle = "NumAtoms x NumRotableBonds"
+  ) +
+  theme_bw()
+
+# NumHDonors x NumHAcceptors
+
+ggplot(df) +
+  aes(
+    x = NumHDonors,
+    y = NumHAcceptors,
+    colour = NumRotableBonds
+  ) +
+  geom_point(shape = "circle", size = 1.5) +
+  scale_color_distiller(palette = "YlOrRd", direction = 1) +
+  labs(
+    title = "Plot",
+    subtitle = "NumHDonors x NumHAcceptors"
+  ) +
+  coord_flip() +
+  theme_bw()
+
 # descriptors histogram
 
 # NumAtoms
